@@ -1,0 +1,25 @@
+﻿@model List<RPGMaker.Models.Index.TerritoryViewModel>
+
+@{
+    ViewData["Title"] = "Territories";
+}
+
+<h1>Territórios</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-default">Create new</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+    </tr>
+    @foreach (RPGMaker.Models.Index.TerritoryViewModel item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>

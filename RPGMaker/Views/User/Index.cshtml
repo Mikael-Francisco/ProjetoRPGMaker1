@@ -1,0 +1,31 @@
+﻿@model List<RPGMaker.Models.Index.UserViewModel>
+
+@{
+    ViewData["Title"] = "Masters";
+}
+
+<h1>Mestres</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-default">Create new</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Data de Nascimento</th>
+        <th>Conta</th>
+    </tr>
+    @foreach (RPGMaker.Models.Index.UserViewModel item in Model)
+    {
+<tr>
+    <td>@item.ID</td>
+    <td>@item.Name</td>
+    <td>@item.Email</td>
+    <td>@item.BirthDate</td>
+    <td>@item.Permission</td>
+</tr>
+    }
+</table>

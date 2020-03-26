@@ -1,0 +1,93 @@
+﻿@model RPGMaker.Models.Inserts.CharacterInsertViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar</h1>
+
+<h4>Personagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Raças</label>
+                <div class="col-md-10">
+                    <select class="form-control" name="Races" id="RaceID">
+                        @foreach (var race in ViewBag.Races)
+                        {
+                            <option value="@race.ID">@race.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Classes</label>
+                <div class="col-md-10">
+                    <select class="form-control" name="Classes" id="ClassID">
+                        @foreach (var classes in ViewBag.Classes)
+                        {
+                            <option value="@classes.ID">@classes.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Itens</label>
+                <div class="col-md-10">
+                    <select class="form-control" name="Items" id="ItemID">
+                        @foreach (var items in ViewBag.Items)
+                        {
+                            <option value="@items.ID">@items.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Territórios</label>
+                <div class="col-md-10">
+                    <select class="form-control" name="Territories" id="TerritoryID">
+                        @foreach (var territory in ViewBag.Territories)
+                        {
+                            <option value="@territory.ID">@territory.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

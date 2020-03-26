@@ -1,0 +1,75 @@
+﻿@model RPGMaker.Models.Inserts.UserInsertViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="d-flex justify-content-center">CADASTRO</h1>
+
+<h4 class="d-flex justify-content-center">Inicie sua aventura!</h4>
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <font color="Black" face="Arial" size="5">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Nome</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" name="ErrorName" id="ErrorName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" name="ErrorEmail" id="ErrorEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BirthDate" class="control-label">Data de Nascimento</label>
+                    <input asp-for="BirthDate" class="form-control" />
+                    <span asp-validation-for="BirthDate" typeof="date" name="ErrorBirthDate" id="ErrorBirthDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">Senha</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" name="ErrorPassword" id="ErrorPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="control-label">Confirmar Senha</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" name="ErrorConfirmPassword" id="ErrorConfirmPassword" class="text-danger"></span>
+                </div>
+
+                @{
+                    string[] permission = Enum.GetNames(typeof(DTO.Enums.Permission));
+                }
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Conta</label>
+                    <div class="col-md-10">
+                        <select class="form-control" name="Permission" id="Permission">
+                            @for (int i = 0; i < permission.Length; i++)
+                            {
+                                <option value="@i">@permission[i]</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="CADASTRAR" class="btn btn-primary" />
+                </div>
+            </font>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

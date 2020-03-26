@@ -1,0 +1,41 @@
+﻿@model List<RPGMaker.Models.Index.CreatureViewModel>
+
+@{
+    ViewData["Title"] = "Creatures";
+}
+
+<h1>Criaturas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-default">Create new</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Altura</th>
+        <th>Raça</th>
+        <th>Classe</th>
+        <th>Item</th>
+        <th>Território de origem</th>
+        <th>Tipo de Criatura</th>
+
+    </tr>
+    @foreach (RPGMaker.Models.Index.CreatureViewModel item in Model)
+    {
+    <tr>
+        <td>@item.ID</td>
+        <td>@item.Name</td>
+        <td>@item.Age</td>
+        <td>@item.Height</td>
+        <td>@item.Race</td>
+        <td>@item.Class</td>
+        <td>@item.Item</td>
+        <td>@item.HomeTerritory</td>
+        <td>@item.CreatureType</td>
+
+</tr>
+    }
+</table>

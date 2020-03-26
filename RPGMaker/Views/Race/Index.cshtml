@@ -1,0 +1,25 @@
+﻿@model List<RPGMaker.Models.Index.RaceViewModel>
+
+@{
+    ViewData["Title"] = "Races";
+}
+
+<h1>Raças</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-default">Create new</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+    </tr>
+    @foreach (RPGMaker.Models.Index.RaceViewModel item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+        </tr>
+    }
+</table>

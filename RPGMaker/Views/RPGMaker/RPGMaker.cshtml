@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="d-flex justify-content-center">CRIAR RPG</h1>
+
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+        <form>
+            <font color="Black" face="Arial" size="5">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group d-flex justify-content-center">
+                    <input asp-controller="Class" asp-action="Create" type="submit" value="CRIAR CLASSE" class="btn btn-primary" />
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input asp-controller="Race" asp-action="Create" type="submit" value="CRIAR RAÇA" class="btn btn-primary" />
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input asp-controller="Territory" asp-action="Create" type="submit" value="CRIAR TERRITÓRIO" class="btn btn-primary" />
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input asp-controller="Item" asp-action="Create" type="submit" value="CRIAR ITEM" class="btn btn-primary" />
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input asp-controller="Creature" asp-action="Create" type="submit" value="CRIAR CRIATURA" class="btn btn-primary" />
+                </div>
+            </font>
+        </form>
+    </div>
+</div>
